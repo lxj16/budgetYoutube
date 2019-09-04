@@ -1,0 +1,8 @@
+.video-tab {
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer;
+}
+.video-tab.item img {
+  max-width: 200px;
+}
