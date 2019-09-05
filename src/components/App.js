@@ -32,6 +32,9 @@ class App extends Component {
   render() {
     return (
       <div className="ui container">
+        <h3 class="ui block header red">
+          <i class="youtube icon"></i>YouTube
+        </h3>
         <SearchBar onFormSubmit={this.onSearchSubmit} />
         <div className="ui grid">
           <div className="ui row">
