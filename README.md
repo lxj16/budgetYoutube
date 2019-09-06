@@ -8,4 +8,4 @@ Live demo:https://simplified-youtube.herokuapp.com/
 - [React](https://facebook.github.io/react/ "React")
 - [Semantic UI](https://semantic-ui.com/ "Semantic UI")
 - [Lodash](https://lodash.com/ "Lodash") 
-- [Youtube API](https://developers.google.com/youtube/ "Youtube API") by Google
+- [Youtube API](https://developers.google.com/youtube/ "Youtube API")
