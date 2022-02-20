@@ -7,41 +7,45 @@ import VideoDetail from "./VideoDetail/VideoDetail";
 class App extends Component {
   state = {
     videos: [],
-    selectedVideo: null
+    selectedVideo: null,
   };
 
   componentDidMount() {
     this.onSearchSubmit("nba");
   }
 
-  onSelectedVideo = video => {
+  onSelectedVideo = (video) => {
     this.setState({ selectedVideo: video });
   };
-  onSearchSubmit = async input => {
-    const response = await youtube.get("/search", {
-      params: {
-        q: input
-      }
-    });
+  onSearchSubmit = async (input) => {
+    try {
+      const response = await youtube.get("/search", {
+        params: {
+          q: input,
+        },
+      });
 
-    this.setState({
-      videos: response.data.items,
-      selectedVideo: response.data.items[0]
-    });
+      this.setState({
+        videos: response.data.items,
+        selectedVideo: response.data.items[0],
+      });
+    } catch (e) {
+      console.log(e.response);
+    }
   };
   render() {
     return (
-      <div className="ui container">
-        <h3 class="ui block header red">
-          <i class="youtube icon"></i>YouTube
+      <div className='ui container'>
+        <h3 className='ui block header red'>
+          <i className='youtube icon'></i>YouTube
         </h3>
         <SearchBar onFormSubmit={this.onSearchSubmit} />
-        <div className="ui grid">
-          <div className="ui row">
-            <div className="eleven wide column">
+        <div className='ui grid'>
+          <div className='ui row'>
+            <div className='eleven wide column'>
               <VideoDetail video={this.state.selectedVideo} />
             </div>
-            <div className="five wide column">
+            <div className='five wide column'>
               <VideoList
                 videos={this.state.videos}
                 onSelectedVideo={this.onSelectedVideo}
